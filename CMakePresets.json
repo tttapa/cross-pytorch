@@ -1,0 +1,27 @@
+{
+    "version": 4,
+    "configurePresets": [
+        {
+            "name": ".pytorch-cuda-12",
+            "hidden": true,
+            "toolchainFile": "${sourceDir}/scripts/toolchains/x86_64-bionic-linux-gnu.cmake",
+            "cacheVariables": {
+                "CMAKE_FIND_ROOT_PATH": "${sourceDir}/toolchains/x86_64-bionic-linux-gnu/pytorch",
+                "CMAKE_CUDA_ARCHITECTURES": "86",
+                "TORCH_CUDA_ARCH_LIST": "8.6",
+                "CAFFE2_USE_CUDNN": true
+            }
+        },
+        {
+            "name": "develop",
+            "inherits": [
+                ".pytorch-cuda-12"
+            ],
+            "binaryDir": "build",
+            "generator": "Ninja Multi-Config",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": true
+            }
+        }
+    ]
+}

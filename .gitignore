@@ -1,2 +1,4 @@
 /toolchains
 .venv
+.*cache
+/build
